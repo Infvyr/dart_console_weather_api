@@ -1,6 +1,5 @@
 import 'package:intl/intl.dart';
 
-
 class Weather {
   const Weather({
     required this.lastUpdated,
@@ -41,27 +40,29 @@ class Weather {
   final int airQualityGbDefraIndex;
 
   factory Weather.fromJson(Map<String, dynamic> json) => Weather(
-    lastUpdated: json['current']['last_updated'] as String,
-    tempC: json['current']['temp_c'] as double,
-    condition: json['current']['condition']['text'] as String,
-    windMph: json['current']['wind_mph'] as double,
-    windDir: json['current']['wind_dir'] as String,
-    pressureMb: json['current']['pressure_mb'] as double,
-    precipMm: json['current']['precip_mm'] as double,
-    humidity: json['current']['humidity'] as int,
-    feelsLikeC: json['current']['feelslike_c'] as double,
-    visKm: json['current']['vis_km'] as double,
-    uv: json['current']['uv'] as double,
-    airQualityCo: json['current']['air_quality']['co'] as double,
-    airQualityNo2: json['current']['air_quality']['no2'] as double,
-    airQualityO3: json['current']['air_quality']['o3'] as double,
-    airQualitySo2: json['current']['air_quality']['so2'] as double,
-    airQualityUsEpaIndex: json['current']['air_quality']['us-epa-index'] as int,
-    airQualityGbDefraIndex: json['current']['air_quality']['gb-defra-index'] as int,
-  );
+        lastUpdated: json['current']['last_updated'] as String,
+        tempC: json['current']['temp_c'] as double,
+        condition: json['current']['condition']['text'] as String,
+        windMph: json['current']['wind_mph'] as double,
+        windDir: json['current']['wind_dir'] as String,
+        pressureMb: json['current']['pressure_mb'] as double,
+        precipMm: json['current']['precip_mm'] as double,
+        humidity: json['current']['humidity'] as int,
+        feelsLikeC: json['current']['feelslike_c'] as double,
+        visKm: json['current']['vis_km'] as double,
+        uv: json['current']['uv'] as double,
+        airQualityCo: json['current']['air_quality']['co'] as double,
+        airQualityNo2: json['current']['air_quality']['no2'] as double,
+        airQualityO3: json['current']['air_quality']['o3'] as double,
+        airQualitySo2: json['current']['air_quality']['so2'] as double,
+        airQualityUsEpaIndex:
+            json['current']['air_quality']['us-epa-index'] as int,
+        airQualityGbDefraIndex:
+            json['current']['air_quality']['gb-defra-index'] as int,
+      );
 
   @override
-  String toString()=> '''
+  String toString() => '''
     Last updated: ${DateFormat('MMMM dd, yyyy HH:mm').format(DateTime.parse(lastUpdated))}
     Temperature: $tempC °C
     Condition: $condition
