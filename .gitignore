@@ -3,4 +3,6 @@
 .packages
 
 # Conventional directory for build output.
+.idea/
+.vscode/
 build/
