@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:meta_weather/meta_weather.dart';
 
 void main(List<String> arguments) async {
@@ -8,6 +10,14 @@ void main(List<String> arguments) async {
 
   final city = arguments.first;
   final weatherApiClient = WeatherApiClient();
-  final weather = await weatherApiClient.fetchWeatherByCity(city);
-  print(weather);
+  try {
+    final weather = await weatherApiClient.fetchWeatherByCity(city);
+    print(weather);
+  } on WeatherApiException catch (e) {
+    print(e.message);
+  } on SocketException catch (_) {
+    print('Could not fetch data. Check your internet connection!');
+  } catch (e) {
+    print(e);
+  }
 }
